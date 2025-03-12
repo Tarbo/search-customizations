@@ -5,5 +5,7 @@ class SearchRequest(BaseModel):
 
 class SearchResult(BaseModel):
     id: str
-    title: str
-    content: str
+    name: str
+    description: str
+    price: float
+    category: str
