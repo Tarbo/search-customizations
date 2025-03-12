@@ -1,0 +1,6 @@
+product_index_columns:
+  id: "id"
+  name: "name"
+  description: "description"
+  price: "price"
+  category: "category"
