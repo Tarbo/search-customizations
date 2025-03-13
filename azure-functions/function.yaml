@@ -1,0 +1,9 @@
+bindings:
+  - name: req
+    type: httpTrigger
+    direction: in
+    authLevel: function
+    methods: [get, post]
+  - name: res
+    type: http
+    direction: out
