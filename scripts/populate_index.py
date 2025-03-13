@@ -8,18 +8,21 @@ load_dotenv()
 # Load environment variables
 service_name = os.getenv("AZURE_SEARCH_SERVICE_NAME")
 admin_key = os.getenv("AZURE_SEARCH_ADMIN_KEY")
+index_name = os.getenv("AZURE_SEARCH_INDEX_NAME_PRODUCT")  # Load updated index name variable
 
-# Ensure service_name and admin_key are valid strings
+# Ensure service_name, admin_key, and index_name are valid strings
 if not service_name or not isinstance(service_name, str):
     raise ValueError("AZURE_SEARCH_SERVICE_NAME must be a valid string.")
 if not admin_key or not isinstance(admin_key, str):
     raise ValueError("AZURE_SEARCH_ADMIN_KEY must be a valid string.")
+if not index_name or not isinstance(index_name, str):
+    raise ValueError("AZURE_SEARCH_INDEX_NAME_PRODUCT must be a valid string.")
 
 # Construct the endpoint URL
 endpoint = f"https://{service_name}.search.windows.net"
 
 # Create the search client
-search_client = SearchClient(endpoint=endpoint, index_name="products", credential=AzureKeyCredential(admin_key))
+search_client = SearchClient(endpoint=endpoint, index_name=index_name, credential=AzureKeyCredential(admin_key))
 
 # Generate sample products
 products = [

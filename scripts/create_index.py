@@ -16,6 +16,8 @@ if not service_name or not isinstance(service_name, str):
 if not admin_key or not isinstance(admin_key, str):
     raise ValueError("AZURE_SEARCH_ADMIN_KEY must be a valid string.")
 
+
+# load the yaml config file safely
 # Construct the endpoint URL
 endpoint = f"https://{service_name}.search.windows.net"
 
