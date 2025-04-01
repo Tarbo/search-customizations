@@ -4,6 +4,9 @@ from app.config import settings
 from app.models.search import SearchResult
 
 def search_documents(query: str) -> list[SearchResult]:
+    print(f"Connecting to Azure Search at: {settings.AZURE_SEARCH_ENDPOINT}")
+    print(f"Using index: {settings.AZURE_SEARCH_INDEX_NAME_PRODUCT}")
+    print(f"Query: {query}")
     client = SearchClient(
         endpoint=settings.AZURE_SEARCH_ENDPOINT,
         index_name=settings.AZURE_SEARCH_INDEX_NAME_PRODUCT,
